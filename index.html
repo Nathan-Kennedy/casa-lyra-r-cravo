@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa Lyra · R. Cravo · 56,49 m² · padrão médio · INFINITI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,400;112,600;125,700&family=Spline+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: pagina de apresentacao de projeto, como um caderno de arquitetura: imagem grande, legendas tecnicas (m2, materiais, marcas),
+   secoes por parte da casa. Paleta tirada da propria casa: reboco off-white, taupe do portico, areia do travertino, preto das esquadrias. */
+:root {
+  --reboco: #f5f2ec;
+  --papel: #fbfaf7;
+  --tinta: #1d1c1a;
+  --tinta-2: #5f5a52;
+  --taupe: #8c8174;
+  --travertino: #cdb894;
+  --linha: #e2ddd3;
+  --oliva: #6d7350;
+  --f-titulo: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-texto: "Spline Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --reboco: #161513; --papel: #1d1c19; --tinta: #f1ede6; --tinta-2: #b4ada2; --taupe: #a99d8e; --travertino: #d8c4a0; --linha: #34312c; --oliva: #a3a97f; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --reboco: #161513; --papel: #1d1c19; --tinta: #f1ede6; --tinta-2: #b4ada2; --taupe: #a99d8e; --travertino: #d8c4a0; --linha: #34312c; --oliva: #a3a97f; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--reboco); color: var(--tinta); font: 400 1rem/1.6 var(--f-texto); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--reboco); }
+.guia { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.miolo { max-width: 1180px; margin: 0 auto; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--travertino); outline-offset: 3px; }
+
+header.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--reboco) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--linha); }
+header.topo .miolo { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 12px; }
+.marca { font: 700 1rem/1 var(--f-titulo); font-stretch: 125%; letter-spacing: 0.02em; text-decoration: none; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a { font: 600 0.78rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--tinta-2); }
+nav a:hover { color: var(--tinta); }
+
+.capa { padding-block: 28px 0; }
+.capa figure { margin: 0; position: relative; }
+.capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; cursor: zoom-in; }
+.capa-texto { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: end; padding-block: 28px 8px; }
+h1 { margin: 0; font: 700 clamp(2.2rem, 5.5vw, 4.4rem)/1 var(--f-titulo); font-stretch: 125%; letter-spacing: -0.01em; text-wrap: balance; }
+h1 span { color: var(--taupe); }
+.capa-texto p { margin: 0; color: var(--tinta-2); max-width: 46ch; }
+.fichas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--tinta); margin-top: 20px; }
+.ficha { padding: 14px 16px 14px 0; border-right: 1px solid var(--linha); }
+.ficha:last-child { border-right: 0; }
+.ficha b { display: block; font: 700 1.5rem/1.1 var(--f-titulo); font-stretch: 112%; font-variant-numeric: tabular-nums; }
+.ficha small { color: var(--tinta-2); font-size: 0.82rem; }
+
+section { padding-block: 64px 8px; }
+.rotulo { font: 600 0.76rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.16em; text-transform: uppercase; color: var(--taupe); margin: 0 0 10px; }
+h2 { margin: 0 0 22px; font: 700 clamp(1.6rem, 3.2vw, 2.4rem)/1.1 var(--f-titulo); font-stretch: 118%; text-wrap: balance; }
+.intro { color: var(--tinta-2); max-width: 62ch; margin: -8px 0 26px; }
+
+.grade-fachada { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+figure.quadro { margin: 0; }
+figure.quadro img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; cursor: zoom-in; background: var(--linha); }
+figcaption { font-size: 0.85rem; color: var(--tinta-2); padding-top: 8px; }
+
+.ambiente { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 28px; padding-block: 26px; border-top: 1px solid var(--linha); align-items: start; }
+.ambiente:nth-of-type(even) .fotos { order: 2; }
+.ambiente .fotos { display: grid; gap: 12px; }
+.ambiente h3 { margin: 0 0 4px; font: 700 1.35rem/1.15 var(--f-titulo); font-stretch: 112%; }
+.area { font: 600 0.8rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.1em; color: var(--taupe); font-variant-numeric: tabular-nums; }
+.ambiente p { color: var(--tinta-2); margin: 12px 0; }
+.ambiente ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ambiente li { padding-left: 16px; position: relative; font-size: 0.93rem; }
+.ambiente li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; background: var(--travertino); }
+
+.areas { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.areas td { padding: 10px 0; border-bottom: 1px solid var(--linha); }
+.areas td:last-child { text-align: right; font-weight: 500; }
+.areas tr.total td { border-top: 1px solid var(--tinta); border-bottom: 0; font: 700 1.05rem var(--f-titulo); font-stretch: 112%; }
+.duas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
+
+.produtos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--tinta); }
+.produto { padding: 18px 18px 18px 0; border-bottom: 1px solid var(--linha); min-width: 0; }
+.produto .onde { font: 600 0.72rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); }
+.produto b { display: block; font-weight: 500; margin: 6px 0 2px; }
+.produto span { color: var(--tinta-2); font-size: 0.88rem; }
+.amostras { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+.amostra { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--tinta-2); }
+.amostra i { width: 28px; height: 28px; display: inline-block; border: 1px solid var(--linha); }
+
+.tresd { background: var(--tinta); color: var(--reboco); margin-top: 64px; }
+.tresd .miolo { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 56px; }
+.tresd h2 { color: var(--reboco); }
+.tresd p { color: color-mix(in srgb, var(--reboco) 75%, var(--tinta)); margin: 0 0 22px; max-width: 52ch; }
+.botao { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; background: var(--travertino); color: #1d1c1a; text-decoration: none; font: 600 0.9rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.06em; text-transform: uppercase; }
+.botao:hover { filter: brightness(1.05); }
+.tresd ol { margin: 0; padding-left: 20px; color: color-mix(in srgb, var(--reboco) 80%, var(--tinta)); display: grid; gap: 8px; font-size: 0.93rem; }
+
+footer { padding-block: 36px 48px; color: var(--tinta-2); font-size: 0.82rem; }
+footer .miolo { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+#zoom { position: fixed; inset: 0; z-index: 50; background: rgba(15, 14, 12, 0.94); display: grid; place-items: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); cursor: zoom-out; }
+#zoom[hidden] { display: none; }
+#zoom img { max-height: 86vh; width: auto; }
+#zoom p { color: #e9e4da; text-align: center; margin: 10px 0 0; font-size: 0.9rem; }
+
+/* Isometricas: cada ambiente visto de cima, como maquete cortada. Prancha sempre clara (fundo branco). */
+.maquetes { display: grid; gap: 18px; }
+.maquete { border-top: 1px solid var(--tinta); padding-top: 14px; }
+.maquete header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.maquete h3 { margin: 0; font: 700 1.2rem/1.15 var(--f-titulo); font-stretch: 112%; }
+.maquete header span { font: 600 0.74rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe); font-variant-numeric: tabular-nums; }
+.maquete .par { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.prancha { margin: 0; background: #ffffff; border: 1px solid var(--linha); position: relative; }
+.prancha img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; padding: 4%; cursor: zoom-in; }
+.prancha figcaption { position: absolute; left: 12px; bottom: 10px; padding: 0; font: 600 0.68rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.14em; text-transform: uppercase; color: #8c8174; }
+.maquetes .quatro { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.maquetes .quatro .maquete header { flex-direction: column; gap: 2px; }
+@media (max-width: 980px) { .maquetes .quatro { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .maquete .par { grid-template-columns: minmax(0, 1fr); } .maquetes .quatro { gap: 14px; } }
+
+/* Planta humanizada (etapa 58): imagem alta e estreita (lote 6 x 30) ao lado do texto */
+.planta { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: start; }
+.planta figure { margin: 0; background: #e2ead6; border: 1px solid var(--linha); }
+.planta img { width: 100%; height: auto; cursor: zoom-in; }
+.planta .lado { position: sticky; top: 90px; }
+.planta ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--tinta-2); }
+/* marca-infiniti (21/10/2026): logo da INFINITI Engenharia no cabecalho e no rodape */
+.marca { display: inline-flex; align-items: center; gap: 10px; }
+.marca img, .assina img { width: 30px; height: 30px; object-fit: contain; }
+.marca .infiniti-escuro, .assina .infiniti-escuro { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .infiniti-claro { display: none; } :root:not([data-theme="light"]) .infiniti-escuro { display: inline; } }
+:root[data-theme="dark"] .infiniti-claro { display: none; } :root[data-theme="dark"] .infiniti-escuro { display: inline; }
+.assina { display: inline-flex; align-items: center; gap: 10px; color: var(--tinta); font-weight: 500; }
+.assina small { display: block; color: var(--tinta-2); font-weight: 400; }
+
+@media (max-width: 820px) { .planta { grid-template-columns: minmax(0, 1fr); } .planta figure { max-width: 420px; margin: 0 auto; } .planta .lado { position: static; } }
+
+@media (max-width: 820px) {
+  .capa-texto, .ambiente, .duas, .tresd .miolo { grid-template-columns: minmax(0, 1fr); }
+  .ambiente:nth-of-type(even) .fotos { order: 0; }
+  .produtos { grid-template-columns: minmax(0, 1fr); }
+  .fichas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ficha:nth-child(2) { border-right: 0; }
+  .grade-fachada { grid-template-columns: minmax(0, 1fr); }
+  nav { gap: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) { .capa img { animation: entra 0.9s ease-out both; } @keyframes entra { from { opacity: 0.6; transform: scale(1.01); } to { opacity: 1; transform: none; } } }
+
+/* escopo-fornecimento (25/10/2026): escopo do fornecimento (nao incluso) e memorial descritivo */
+.escopo .lista { margin: 0 0 8px; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; border-top: 1px solid var(--tinta); }
+.escopo .lista li { padding: 12px 0 12px 22px; border-bottom: 1px solid var(--linha); position: relative; font-size: 0.95rem; }
+.escopo .lista li::before { content: ""; position: absolute; left: 0; top: 1.28em; width: 10px; height: 2px; background: var(--taupe); }
+.escopo h3 { margin: 34px 0 12px; font: 700 1.25rem/1.15 var(--f-titulo); font-stretch: 112%; }
+.escopo h2 small { display: block; margin-top: 8px; font: 600 0.8rem var(--f-titulo); font-stretch: 112%; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); }
+.escopo .memorial { border-left: 3px solid var(--travertino); padding: 4px 0 4px 18px; max-width: 72ch; color: var(--tinta-2); margin: 0; }
+.nao-incluso { display: inline-block; margin-left: 6px; padding: 0 6px; border: 1px solid var(--linha); font: 600 0.64rem/1.7 var(--f-titulo); font-stretch: 112%; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); white-space: nowrap; vertical-align: 0.1em; }
+.aviso-escopo { font-size: 0.88rem; color: var(--tinta-2); max-width: 72ch; margin: -6px 0 24px; }
+.aviso-escopo a { color: var(--tinta); }
+@media (max-width: 820px) { .escopo .lista { grid-template-columns: minmax(0, 1fr); } }
+
+/* E18 (25/10): diagramas inteiros, sem corte 16:9 (pedido do usuario) */
+.quadro.inteira img { aspect-ratio: auto; height: auto; object-fit: contain; background: #fff; }
+</style>
+</head>
+<body>
+
+<header class="topo guia">
+  <div class="miolo">
+    <a class="marca" href="#inicio"><img class="infiniti-claro" src="img/logo-infiniti.png" alt="INFINITI Engenharia"><img class="infiniti-escuro" src="img/logo-infiniti-branca.png" alt="INFINITI Engenharia"><span>Casa Lyra · R. Cravo · 56,49 m² · padrão médio</span></a>
+    <nav aria-label="Seções">
+      <a href="#fachada">Fachada</a><a href="#planta">Planta</a><a href="#diagramas">Partido</a><a href="#ambientes">Ambientes</a><a href="#maquetes">Isométricas</a><a href="#acabamentos">Acabamentos</a><a href="#padrao">Padrão médio</a><a href="#escopo">Escopo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="capa guia" id="inicio">
+  <div class="miolo">
+    <figure><img src="img/fachada-frente.jpg" alt="Fachada da Casa Lyra na R. Cravo ao entardecer: muro verde com painel claro e arandelas, portão de lâminas pretas e a casa ao fundo" data-legenda="Fachada frontal"></figure>
+    <div class="capa-texto">
+      <h1>Casa Lyra · R. Cravo: térrea <span>contemporânea</span> em lote 6 × 30 · padrão médio</h1>
+      <p>Uma casa compacta e bem resolvida na R. Cravo, em Ariquemes-RO: fachada em verde escuro e bege claro com o telhado escondido atrás das platibandas, vaga descoberta e jardim na frente, portas de madeira frisada, janelas de correr em vidro temperado com perfis pretos, cozinha em L com janela sobre a pia e iluminação com spots e plafons. Acabamentos de linha acessível, sem abrir mão de uma casa bonita.</p>
+    </div>
+    <div class="fichas">
+      <div class="ficha"><b>56,49 m²</b><small>área construída</small></div>
+      <div class="ficha"><b>6 × 30 m</b><small>lote</small></div>
+      <div class="ficha"><b>2 quartos</b><small>quarto principal na frente</small></div>
+      <div class="ficha"><b>1 banheiro</b><small>e vaga descoberta</small></div>
+    </div>
+  </div>
+</div>
+
+<section class="guia" id="fachada">
+  <div class="miolo">
+    <p class="rotulo">Fachada e acesso</p>
+    <h2>Fachada verde e clara, com o telhado escondido</h2>
+    <p class="intro">Muro da frente em verde escuro, com um painel claro e duas arandelas, o padrão de energia com o poste da concessionária e um portão de correr de lâminas pretas. Atrás dele, a casa: o volume do quarto principal em bege claro com detalhes em verde, o pórtico do corredor lateral e o telhado cerâmico escondido atrás das platibandas. Na frente, jardim com canteiro e vaga descoberta com trilhas de brita. Os muros laterais e o do fundo são entregues só chapiscados, sem reboco, emboço nem pintura.</p>
+    <p class="aviso-escopo">O jardim e o portão aparecem nas imagens como <b>ilustração</b>: o paisagismo (plantas, pedras, seixos e bordadura) e o modelo do portão de correr aéreo serão definidos com o cliente.</p>
+    <div class="grade-fachada">
+      <figure class="quadro"><img loading="lazy" src="img/fachada-esquerda.jpg" alt="Fachada vista pela esquerda" data-legenda="Fachada, vista pela esquerda"><figcaption>Vista pela esquerda: o padrão de energia, o poste e o muro lateral.</figcaption></figure>
+      <figure class="quadro"><img loading="lazy" src="img/fachada-direita.jpg" alt="Fachada vista pela direita" data-legenda="Fachada, vista pela direita"><figcaption>Vista pela direita: o portão de correr e a viga sobre o muro.</figcaption></figure>
+      <figure class="quadro"><img loading="lazy" src="img/vista-aerea.jpg" alt="Vista aérea da casa no lote" data-legenda="Vista aérea"><figcaption>Vista aérea: implantação no lote de 6 × 30 m, com jardim, vaga, corredor lateral e quintal.</figcaption></figure>
+      <figure class="quadro"><img loading="lazy" src="img/vaga.jpg" alt="Vaga descoberta com trilhas de brita e grama, porta de entrada ao fundo" data-legenda="Vaga e entrada"><figcaption>Vaga descoberta (9,7 m²) com trilhas de brita e grama; a porta de entrada do estar fica ao fundo.</figcaption></figure>
+    </div>
+    <h3 style="margin:46px 0 8px">A casa sem o muro da frente</h3>
+    <p class="intro">Para mostrar a fachada inteira da casa, estas três vistas tiram o muro da frente, o portão e o poste. É só uma ilustração: o muro faz parte do projeto.</p>
+    <div class="grade-fachada">
+      <figure class="quadro"><img loading="lazy" src="img/fachada-frente-sem-muro.jpg" alt="Fachada da casa sem o muro da frente: jardim, vaga e a casa" data-legenda="Fachada sem o muro"><figcaption>De frente: jardim com canteiro, vaga e a fachada da casa.</figcaption></figure>
+      <figure class="quadro"><img loading="lazy" src="img/fachada-direita-sem-muro.jpg" alt="Fachada vista pela direita sem o muro da frente" data-legenda="Fachada sem o muro, pela direita"><figcaption>Pela direita: o jardim e a janela do quarto principal.</figcaption></figure>
+      <figure class="quadro"><img loading="lazy" src="img/fachada-esquerda-sem-muro.jpg" alt="Fachada vista pela esquerda sem o muro da frente" data-legenda="Fachada sem o muro, pela esquerda"><figcaption>Pela esquerda: a lateral da casa e o muro chapiscado.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="guia" id="planta">
+  <div class="miolo">
+    <p class="rotulo">Planta</p>
+    <h2>A casa inteira, vista de cima</h2>
+    <div class="planta">
+      <figure><img loading="lazy" src="img/planta-humanizada.jpg" alt="Planta baixa humanizada do lote 6 x 30 com o jardim, a vaga, a casa, o corredor lateral e o quintal" data-legenda="Planta baixa humanizada"></figure>
+      <div class="lado">
+        <p class="intro">Planta humanizada gerada direto do modelo 3D do projeto: paredes em preto, pisos e móveis nas cores dos acabamentos escolhidos. Da rua para o fundo:</p>
+        <ol>
+          <li>Calçada com piso tátil, jardim com canteiro e vaga descoberta com trilhas de brita</li>
+          <li>Quarto principal, na frente</li>
+          <li>Sala de estar e circulação</li>
+          <li>Lavanderia, aberta para o corredor lateral, e banheiro</li>
+          <li>Quarto</li>
+          <li>Cozinha em L com saída para o quintal</li>
+          <li>Corredor lateral externo e quintal nos fundos</li>
+        </ol>
+        <p class="intro" style="margin-top:18px">Árvores, pessoas e móveis são ilustrativos, para dar escala. Mobiliário e paisagismo além do previsto em projeto não integram o valor proposto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guia" id="diagramas">
+  <div class="miolo">
+    <p class="rotulo">Partido do projeto</p>
+    <h2>Como a casa foi pensada</h2>
+    <div class="planta">
+      <figure style="max-width:420px;margin:0 auto"><video src="img/partido-lyra.mp4" poster="img/partido-lyra-poster.jpg" muted loop playsinline autoplay controls style="width:100%;border-radius:10px;display:block"></video></figure>
+      <div class="lado">
+        <p class="intro">Do terreno à planta pronta, com os dados reais do lote da R. Cravo, em Ariquemes-RO:</p>
+        <ol>
+          <li><b>Terreno e implantação:</b> lote de 6 × 30 m com recuo frontal de 6 m (jardim e vaga), casa, corredor lateral e quintal.</li>
+          <li><b>Insolação:</b> a frente fica voltada para o leste. O sol da manhã bate na fachada e no jardim; o da tarde, no quintal. Na maior parte do ano ele passa pelo norte, o lado da vaga e do corredor.</li>
+          <li><b>Zoneamento e programa:</b> estar e cozinha (social), quartos e banheiro (íntimo) e lavanderia (serviço), com a área de cada ambiente.</li>
+          <li><b>Circulação:</b> da rua, pelo portão e pela vaga, até a porta do estar; pelo corredor lateral, até a lavanderia e o quintal.</li>
+          <li><b>Luz e ventilação naturais:</b> janela em todo ambiente de permanência; ventos da região de sudoeste na seca e de norte e nordeste nas chuvas.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guia" id="ambientes">
+  <div class="miolo">
+    <p class="rotulo">Ambientes</p>
+    <h2>Cada cômodo no tamanho real</h2>
+    <p class="intro">Móveis e acabamentos escolhidos para caber de verdade em cada ambiente, com circulação livre e produtos encontrados no mercado.</p>
+    <p class="aviso-escopo">As imagens mostram a casa mobiliada e equipada, como sugestão de projeto. Mobiliário, eletrodomésticos, decoração, bancada da cozinha, torneiras e demais metais sanitários não integram o valor proposto (ver <a href="#escopo">Escopo do Fornecimento</a>).</p>
+
+    <article class="ambiente">
+      <div class="fotos"><figure class="quadro"><img loading="lazy" src="img/sala-tv.jpg" alt="Sala de estar com TV na parede e rack claro" data-legenda="Sala de estar, parede da TV"></figure><figure class="quadro"><img loading="lazy" src="img/sala-sofa.jpg" alt="Sala de estar com sofá de linho, quadros e luminária de piso" data-legenda="Sala de estar, sofá"></figure></div>
+      <div>
+        <h3>Sala de estar</h3><span class="area">7,1 m²</span>
+        <p>TV na parede sobre rack suspenso claro; sofá compacto de 2 lugares em linho com almofadas bege e terracota, para manter a passagem livre até a circulação.</p>
+        <ul>
+          <li>Paredes pintadas; tomadas e ponto de TV atrás da TV</li>
+          <li>Sofá, rack, mesa lateral, tapete e luminária de piso <span class="nao-incluso">não incluso</span></li>
+          <li>Spots de embutir 3000 K no forro de gesso</li>
+          <li>Cortina em cortineiro de gesso <span class="nao-incluso">cortina não inclusa</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ambiente">
+      <div class="fotos"><figure class="quadro"><img loading="lazy" src="img/cozinha.jpg" alt="Cozinha em L com bancada de granito cinza, janela sobre a pia e mesa redonda" data-legenda="Cozinha"></figure><figure class="quadro"><img loading="lazy" src="img/cozinha-l.jpg" alt="Canto da cozinha em L com cooktop junto à porta-janela" data-legenda="Cozinha, canto do L"></figure></div>
+      <div>
+        <h3>Cozinha</h3><span class="area">10,0 m²</span>
+        <p>Cozinha em L: a pia fica no centro da parede, sob uma janela de correr de 4 folhas, e o cooktop vai para o braço menor do L, ao lado da porta-janela para o quintal. Assim sobra bancada livre para preparar a comida. A bancada, os módulos, a torneira, o cooktop, a geladeira e a mesa aparecem como sugestão de projeto e não integram o valor proposto.</p>
+        <ul>
+          <li>Bancada em L de granito cinza claro com frontão, cuba de inox e cooktop 4 bocas <span class="nao-incluso">não incluso</span></li>
+          <li>Módulos brancos sob a bancada e torneira de bica flexível <span class="nao-incluso">não incluso</span></li>
+          <li>Janela de correr de 4 folhas sobre a pia (peitoril a 1,10 m) e porta-janela de vidro para o quintal</li>
+          <li>Paredes da bancada em cerâmica clara marmorizada até o forro</li>
+          <li>Geladeira e mesa redonda com 4 cadeiras <span class="nao-incluso">não incluso</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ambiente">
+      <div class="fotos"><figure class="quadro"><img loading="lazy" src="img/quarto-principal.jpg" alt="Quarto principal com cama de casal, guarda-roupa e janela" data-legenda="Quarto principal"></figure><figure class="quadro"><img loading="lazy" src="img/quarto-principal-tv.jpg" alt="Quarto principal, parede da TV" data-legenda="Quarto principal, parede da TV"></figure><figure class="quadro"><img loading="lazy" src="img/quarto.jpg" alt="Quarto com cama de casal, criados brancos e quadros" data-legenda="Quarto"></figure><figure class="quadro"><img loading="lazy" src="img/quarto-tv.jpg" alt="Quarto com TV na parede e ar-condicionado" data-legenda="Quarto, parede da TV"></figure></div>
+      <div>
+        <h3>Quartos</h3><span class="area">quarto principal 9,2 m² · quarto 7,7 m²</span>
+        <p>Cama em madeira clara, criados brancos e quadros em tons neutros; TV na parede sobre painel liso. Luz de plafon LED quadrado no forro e ar-condicionado sobre a porta.</p>
+        <ul>
+          <li>Tomadas de cabeceira ao lado de cada criado</li>
+          <li>Guarda-roupa de correr e painel da TV <span class="nao-incluso">não incluso</span></li>
+          <li>Blackout e voil em cortineiro de gesso <span class="nao-incluso">cortinas não inclusas</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ambiente">
+      <div class="fotos"><figure class="quadro"><img loading="lazy" src="img/banho-social.jpg" alt="Banheiro com parede do box em cerâmica escura, nicho e bancada de granito cinza" data-legenda="Banheiro"></figure></div>
+      <div>
+        <h3>Banheiro</h3><span class="area">3,5 m²</span>
+        <p>Parede do box em cerâmica preta marmorizada; demais paredes em cerâmica clara. Bancada de granito cinza com cuba de louça, vaso com caixa acoplada e box de vidro. O nicho embutido no box, o chuveiro, as torneiras e demais metais, sifões, válvulas e acessórios de banheiro não integram o valor proposto.</p>
+        <ul>
+          <li>Piso cerâmico acetinado, nunca polido em área molhada</li>
+          <li>Plafon LED quadrado no forro</li>
+          <li>Chuveiro <span class="nao-incluso">não incluso</span></li>
+          <li>Nicho embutido no box <span class="nao-incluso">não incluso</span></li>
+          <li>Torneira e acessórios <span class="nao-incluso">não inclusos</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ambiente">
+      <div class="fotos"><figure class="quadro"><img loading="lazy" src="img/lavanderia.jpg" alt="Lavanderia com tanque duplo branco e lavadora, aberta para o corredor lateral" data-legenda="Lavanderia"></figure><figure class="quadro"><img loading="lazy" src="img/circulacao.jpg" alt="Circulação com spots no forro e portas de madeira frisada" data-legenda="Circulação"></figure></div>
+      <div>
+        <h3>Lavanderia e circulação</h3><span class="area">lavanderia 3,5 m² · circulação 7,1 m²</span>
+        <p>Lavanderia aberta para o corredor lateral por um vão de 2,50 m, com tanque duplo branco e espaço para a lavadora (torneiras e lavadora não inclusas). Na circulação, spots no forro e portas de madeira frisada.</p>
+        <ul>
+          <li>Tanque duplo branco suspenso na parede</li>
+          <li>Parede molhada em cerâmica clara; demais paredes pintadas, com rodapé</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="guia" id="maquetes">
+  <div class="miolo">
+    <p class="rotulo">Isométricas</p>
+    <h2>Cada ambiente visto de cima</h2>
+    <p class="intro">Vistas isométricas tiradas do modelo do projeto, com as paredes da frente cortadas para mostrar o ambiente inteiro, e o mesmo acabamento fotográfico das imagens dos ambientes. Sala e quartos têm dois ângulos, para aparecer cada parede e cada móvel. Toque para ampliar. Móveis, eletrodomésticos, decoração e metais são ilustrativos e não integram o valor proposto.</p>
+    <div class="maquetes">
+    <article class="maquete">
+      <header><h3>Sala de estar</h3><span>7,1 m² · 2 vistas</span></header>
+      <div class="par"><figure class="prancha"><img loading="lazy" src="img/iso-sala-1.jpg" alt="Isométrica da sala de estar, parede da TV" data-legenda="Sala de estar, parede da TV"><figcaption>Parede da TV</figcaption></figure><figure class="prancha"><img loading="lazy" src="img/iso-sala-2.jpg" alt="Isométrica da sala de estar, sofá e janela" data-legenda="Sala de estar, sofá e janela"><figcaption>Sofá e janela</figcaption></figure></div>
+    </article>
+    <article class="maquete">
+      <header><h3>Quarto principal</h3><span>9,2 m² · 2 vistas</span></header>
+      <div class="par"><figure class="prancha"><img loading="lazy" src="img/iso-quarto-principal-1.jpg" alt="Isométrica do quarto principal, cama e janela" data-legenda="Quarto principal, cama e janela"><figcaption>Cama e janela</figcaption></figure><figure class="prancha"><img loading="lazy" src="img/iso-quarto-principal-2.jpg" alt="Isométrica do quarto principal, parede da TV e guarda-roupa" data-legenda="Quarto principal, parede da TV"><figcaption>Parede da TV e guarda-roupa</figcaption></figure></div>
+    </article>
+    <article class="maquete">
+      <header><h3>Quarto</h3><span>7,7 m² · 2 vistas</span></header>
+      <div class="par"><figure class="prancha"><img loading="lazy" src="img/iso-quarto-1.jpg" alt="Isométrica do quarto, parede da TV e janela" data-legenda="Quarto, parede da TV e janela"><figcaption>Parede da TV e janela</figcaption></figure><figure class="prancha"><img loading="lazy" src="img/iso-quarto-2.jpg" alt="Isométrica do quarto, cama e guarda-roupa" data-legenda="Quarto, cama e guarda-roupa"><figcaption>Cama e guarda-roupa</figcaption></figure></div>
+    </article>
+      <div class="quatro">
+    <article class="maquete">
+      <header><h3>Cozinha</h3><span>10,0 m²</span></header>
+      <figure class="prancha"><img loading="lazy" src="img/iso-cozinha.jpg" alt="Isométrica da cozinha em L com janela sobre a pia e mesa redonda" data-legenda="Cozinha"></figure>
+    </article>
+    <article class="maquete">
+      <header><h3>Banheiro</h3><span>3,5 m²</span></header>
+      <figure class="prancha"><img loading="lazy" src="img/iso-banheiro.jpg" alt="Isométrica do banheiro com box, bancada de granito e vaso" data-legenda="Banheiro"></figure>
+    </article>
+    <article class="maquete">
+      <header><h3>Lavanderia</h3><span>3,5 m²</span></header>
+      <figure class="prancha"><img loading="lazy" src="img/iso-lavanderia.jpg" alt="Isométrica da lavanderia com tanque duplo e lavadora" data-legenda="Lavanderia"></figure>
+    </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guia" id="acabamentos">
+  <div class="miolo">
+    <p class="rotulo">Acabamentos e produtos</p>
+    <h2>Materiais reais, com medida</h2>
+    <p class="aviso-escopo">Bancada e mármore da cozinha, torneiras e demais metais sanitários, sifões, engates e válvulas, acessórios de banheiro, mobiliário e eletrodomésticos não integram o valor proposto: quando aparecem aqui ou nas imagens, são referência de projeto. Marcas e modelos de linha básica, a definir com o cliente. As especificações de acabamento constam do Memorial Descritivo (ver <a href="#escopo">Escopo do Fornecimento</a>).</p>
+    <div class="amostras" aria-label="Paleta da casa">
+      <span class="amostra"><i style="background:#efe6d2"></i>Pintura externa bege claro</span>
+      <span class="amostra"><i style="background:#4f5b4a"></i>Verde escuro da fachada e do muro</span>
+      <span class="amostra"><i style="background:#a9a7a2"></i>Granito cinza claro</span>
+      <span class="amostra"><i style="background:#b0703e"></i>Madeira das portas</span>
+      <span class="amostra"><i style="background:#1d1c1a"></i>Perfis pretos</span>
+      <span class="amostra"><i style="background:#ece8e1"></i>Cerâmica clara marmorizada</span>
+    </div>
+    <div class="produtos">
+      <div class="produto"><span class="onde">Portas</span><b>Kit porta pronta de madeira frisada</b><span>Folha com frisos horizontais, guarnição de 5 cm, maçaneta cromada</span></div>
+      <div class="produto"><span class="onde">Janelas</span><b>Janelas de correr em vidro temperado 8 mm</b><span>Perfis de alumínio preto; na cozinha, 4 folhas sobre a pia</span></div>
+      <div class="produto"><span class="onde">Revestimentos</span><b>Cerâmica esmaltada</b><span>Estampa marmorizada clara nas paredes molhadas e no piso; preta marmorizada no box; piso acetinado nas áreas molhadas</span></div>
+      <div class="produto"><span class="onde">Bancadas</span><b>Granito cinza claro</b><span>Banheiro e cozinha <span class="nao-incluso">bancada da cozinha não inclusa</span></span></div>
+      <div class="produto"><span class="onde">Louças</span><b>Vaso com caixa acoplada e cuba de louça</b><span>Linha econômica</span></div>
+      <div class="produto"><span class="onde">Lavanderia</span><b>Tanque duplo sintético branco</b><span>Suspenso na parede <span class="nao-incluso">torneiras não inclusas</span></span></div>
+      <div class="produto"><span class="onde">Interruptores e tomadas</span><b>Linha básica, brancos</b><span>Placas 4 × 2, tomadas no padrão brasileiro</span></div>
+      <div class="produto"><span class="onde">Iluminação</span><b>Spot embutido de LED 3000 K e plafon LED quadrado</b><span>Spots na sala, cozinha e circulação; plafons nos quartos, banheiro e lavanderia</span></div>
+      <div class="produto"><span class="onde">Peitoris e soleiras</span><b>Granito cinza</b><span>Com pingadeira</span></div>
+      <div class="produto"><span class="onde">Forro</span><b>Gesso liso</b><span>Com cortineiros nas janelas dos quartos e da sala</span></div>
+    </div>
+    <div class="duas" style="margin-top:44px">
+      <div>
+        <p class="rotulo">Quadro de áreas</p>
+        <table class="areas">
+          <tr><td>Cozinha</td><td>10,0 m²</td></tr>
+                    <tr><td>Quarto principal</td><td>9,2 m²</td></tr>
+          <tr><td>Quarto</td><td>7,7 m²</td></tr>
+          <tr><td>Estar</td><td>7,1 m²</td></tr>
+          <tr><td>Circulação</td><td>7,1 m²</td></tr>
+          <tr><td>Banheiro</td><td>3,5 m²</td></tr>
+          <tr><td>Lavanderia</td><td>3,5 m²</td></tr>
+          <tr><td>Área útil (interna)</td><td>48,1 m²</td></tr>
+          <tr><td>Vaga descoberta (externa)</td><td>9,7 m²</td></tr>
+          <tr class="total"><td>Área construída</td><td>56,49 m²</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="rotulo">Como o projeto é feito</p>
+        <p class="intro" style="margin:0">Todo o projeto é desenvolvido num modelo 3D completo: paredes, estrutura, hidráulica, elétrica e móveis com medidas reais. As imagens são geradas a partir desse modelo, com acabamento fotorrealista. Os produtos citados são referências de tipo e medida. Marcas e modelos de linha básica, a definir com o cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tresd guia" id="padrao">
+  <div class="miolo">
+    <div>
+      <p class="rotulo" style="color:var(--travertino)">Padrão médio</p>
+      <h2>Bonita, bem resolvida e com acabamento acessível</h2>
+      <p>Os acabamentos e os produtos são escolhidos em linhas mais em conta, sem abrir mão de uma casa bonita e confortável.</p>
+    </div>
+    <ol>
+      <li>Portas de madeira frisada e janelas de correr em vidro temperado.</li>
+      <li>Iluminação com spots e plafons LED, sem fitas de LED.</li>
+      <li>Revestimentos em cerâmica que imita mármore.</li>
+      <li>Cozinha em L; bancada, módulos, cooktop e torneira da cozinha não integram o valor proposto.</li>
+      <li>Banheiro com bancada de granito (nicho no box não incluso).</li>
+      <li>Ar-condicionado previsto nos dois quartos (equipamentos não inclusos).</li>
+      <li>Interruptores e tomadas convencionais, sem automação.</li>
+    </ol>
+  </div>
+</div>
+<section class="guia escopo" id="escopo">
+  <div class="miolo">
+    <p class="rotulo">Escopo do Fornecimento</p>
+    <h2>Escopo do Fornecimento<small>continuação</small></h2>
+    <p class="intro">Os itens relacionados a seguir não integram o valor proposto. A enumeração é exemplificativa do que costuma gerar dúvida e não afasta a regra geral: o que não estiver previsto na página anterior ou no memorial descritivo não compõe o escopo.</p>
+    <h3>Não incluso</h3>
+    <ul class="lista">
+      <li>Bancada e mármore da cozinha</li>
+      <li>Torneiras e demais metais sanitários</li>
+      <li>Sifões, engates flexíveis e válvulas de escoamento</li>
+      <li>Acessórios de banheiro (papeleira, saboneteira, toalheiro, cabide e similares)</li>
+      <li>Reboco, emboço e pintura dos muros laterais e de fundo, entregues chapiscados</li>
+      <li>Ligações definitivas de água e energia elétrica</li>
+      <li>Mobiliário, eletrodomésticos e decoração</li>
+      <li>Arandelas externas dos muros</li>
+      <li>Paisagismo e ajardinamento além do previsto em projeto</li>
+      <li>Custos cartorários de escritura, registro e ITBI</li>
+      <li>Tarifas, taxas e seguros exigidos pelo agente financeiro</li>
+      <li>Quaisquer modificações solicitadas após o início da obra, que serão objeto de aditivo</li>
+    </ul>
+    <h3>Memorial descritivo</h3>
+    <p class="memorial">As especificações de acabamento — revestimentos, esquadrias, louças e pintura — constam do Memorial Descritivo, documento técnico que integra esta proposta e é entregue em anexo. Em caso de divergência entre a descrição sintética na cláusula anterior e o memorial, prevalece o memorial descritivo.</p>
+    <p class="aviso-escopo" style="margin-top:14px">Marcas e modelos de linha básica, a definir com o cliente.</p>
+  </div>
+</section>
+<!-- sem-marcas (25/10/2026) -->
+</main>
+
+<footer class="guia">
+  <div class="miolo">
+    <span class="assina"><img class="infiniti-claro" src="img/logo-infiniti.png" alt=""><img class="infiniti-escuro" src="img/logo-infiniti-branca.png" alt=""><span>INFINITI Engenharia e Construtora Ltda.<small>Ariquemes-RO · projeto e construção</small></span></span>
+    <span>Casa Lyra · R. Cravo · 56,49 m² · padrão médio · estudo de projeto</span>
+    <span>Imagens ilustrativas produzidas a partir do modelo do projeto, com acabamento por inteligência artificial. Medidas e especificações finais no projeto executivo e no Memorial Descritivo. Móveis, eletrodomésticos, decoração, bancada da cozinha e metais sanitários mostrados são ilustrativos e não integram o valor proposto.</span>
+  </div>
+</footer>
+
+<div id="zoom" hidden><div><img alt=""><p></p></div></div>
+<script>
+(function () {
+  var z = document.getElementById("zoom"), zi = z.querySelector("img"), zp = z.querySelector("p");
+  document.querySelectorAll("img[data-legenda]").forEach(function (im) {
+    im.addEventListener("click", function () { zi.src = im.src; zi.alt = im.alt; zp.textContent = im.dataset.legenda; z.hidden = false; });
+  });
+  z.addEventListener("click", function () { z.hidden = true; });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") z.hidden = true; });
+})();
+</script>
+
+</body>
+</html>
